@@ -7802,7 +7802,46 @@ exports.default = {
   name: "app",
   data: function data() {
     return {
-      messages: []
+      messages: [],
+      tweetCount: 0,
+      cumulativeScore: 0,
+      sentimentMap: {
+        somewhatN: {
+          count: 0,
+          score: "-1",
+          rating: "somewhat negative"
+        },
+        negative: {
+          count: 0,
+          score: "-2",
+          rating: "negative"
+        },
+        veryNegative: {
+          count: 0,
+          score: "<=-3",
+          rating: "very negative"
+        },
+        neutral: {
+          count: 0,
+          score: "0",
+          rating: "neutral"
+        },
+        somewhatP: {
+          count: 0,
+          score: "1",
+          rating: "somehwat positive"
+        },
+        positive: {
+          count: 0,
+          score: "2",
+          rating: "positive"
+        },
+        veryPositive: {
+          count: 0,
+          score: ">=3",
+          rating: "positive"
+        }
+      }
     };
   },
 
@@ -7811,11 +7850,34 @@ exports.default = {
     connect: function connect() {
       this.$socket.emit("query", "Sony");
     },
-    tweetReceived: function tweetReceived(tweets) {
+    tweetReceived: function tweetReceived(tweet) {
       if (this.messages.length >= 8) {
         this.messages.shift();
-      } else {
-        this.messages.push(tweets);
+      }
+      this.messages.push(tweet);
+      this.processTweets(tweet);
+    }
+  },
+
+  methods: {
+    processTweets: function processTweets(tweet) {
+      this.tweetCount++;
+      this.cumulativeScore = this.cumulativeScore + tweet.score;
+
+      if (tweet.score == 0) {
+        this.sentimentMap.neutral.count++;
+      } else if (tweet.score == 1) {
+        this.sentimentMap.somewhatP.count++;
+      } else if (tweet.score == 2) {
+        this.sentimentMap.positive.count++;
+      } else if (tweet.score >= 3) {
+        this.sentimentMap.veryPositive.count++;
+      } else if (tweet.score == -1) {
+        this.sentimentMap.somewhatN.count++;
+      } else if (tweet.score == -2) {
+        this.sentimentMap.negative.count++;
+      } else if (tweet.score <= -3) {
+        this.sentimentMap.veryNegative.count++;
       }
     }
   }
@@ -7824,7 +7886,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},_vm._l((_vm.messages),function(tweet){return _c('p',[_vm._v(_vm._s(tweet.text)+" + "+_vm._s(tweet.score))])}))}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_vm._l((_vm.messages),function(tweet){return _c('p',[_vm._v(_vm._s(tweet.text)+" + "+_vm._s(tweet.score))])}),_vm._v(" "),_c('p',[_vm._v(_vm._s(_vm.cumulativeScore))])],2)}
 __vue__options__.staticRenderFns = []
 __vue__options__._scopeId = "data-v-7fda0b9e"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
