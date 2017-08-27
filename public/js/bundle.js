@@ -7791,20 +7791,50 @@ exports.insert = function (css) {
 }
 
 },{}],6:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("p[data-v-7fda0b9e] {\n  display: block;\n  height: 50px;\n  border: 2px solid grey;\n  margin: 5px;\n  padding: 0;\n  text-align: center;\n  line-height: 50px;\n}")
 ;(function(){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _header = require("./header.vue");
+
+var _header2 = _interopRequireDefault(_header);
+
+var _chart = require("./chart1.vue");
+
+var _chart2 = _interopRequireDefault(_chart);
+
+var _chart3 = require("./chart2.vue");
+
+var _chart4 = _interopRequireDefault(_chart3);
+
+var _chart5 = require("./chart3.vue");
+
+var _chart6 = _interopRequireDefault(_chart5);
+
+var _tweetWindow = require("./tweetWindow.vue");
+
+var _tweetWindow2 = _interopRequireDefault(_tweetWindow);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
   name: "app",
+  components: {
+    "app-header": _header2.default,
+    "app-chart1": _chart2.default,
+    "app-chart2": _chart4.default,
+    "app-chart3": _chart6.default,
+    "app-tweetW": _tweetWindow2.default
+  },
   data: function data() {
     return {
       messages: [],
       tweetCount: 0,
       cumulativeScore: 0,
+      averageScore: 0,
       sentimentMap: {
         somewhatN: {
           count: 0,
@@ -7863,6 +7893,7 @@ exports.default = {
     processTweets: function processTweets(tweet) {
       this.tweetCount++;
       this.cumulativeScore = this.cumulativeScore + tweet.score;
+      this.averageScore = this.cumulativeScore / this.tweetCount;
 
       if (tweet.score == 0) {
         this.sentimentMap.neutral.count++;
@@ -7886,21 +7917,135 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_vm._l((_vm.messages),function(tweet){return _c('p',[_vm._v(_vm._s(tweet.text)+" + "+_vm._s(tweet.score))])}),_vm._v(" "),_c('p',[_vm._v(_vm._s(_vm.cumulativeScore))])],2)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('app-header'),_vm._v(" "),_c('app-tweetW',{attrs:{"messages":_vm.messages}})],1)}
 __vue__options__.staticRenderFns = []
 __vue__options__._scopeId = "data-v-7fda0b9e"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
-  module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-7fda0b9e", __vue__options__)
   } else {
     hotAPI.reload("data-v-7fda0b9e", __vue__options__)
   }
 })()}
-},{"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],7:[function(require,module,exports){
+},{"./chart1.vue":7,"./chart2.vue":8,"./chart3.vue":9,"./header.vue":10,"./tweetWindow.vue":11,"vue":4,"vue-hot-reload-api":2}],7:[function(require,module,exports){
+;(function(){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  data: function data() {
+    return {};
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c("div")}
+__vue__options__.staticRenderFns = []
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c084dfda", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-c084dfda", __vue__options__)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2}],8:[function(require,module,exports){
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c068b0d8", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-c068b0d8", __vue__options__)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2}],9:[function(require,module,exports){
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c04c81d6", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-c04c81d6", __vue__options__)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2}],10:[function(require,module,exports){
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".header {\r\n  background: rgb(15, 10, 28);\r\n  height: 50px;\r\n  border-bottom: 1px solid grey;\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: flex-start;\r\n  align-items: center;\r\n  align-content: center;\r\n  color: white;\r\n\r\n}\r\n#logo {\r\n  flex-grow: 1;\r\n}\r\n\r\n#logo h3 {\r\n  height: 100%;\r\n  text-align: left;\r\n  font-weight: bold;\r\n  margin: 0 0 0 5%;\r\n  padding: 0;\r\n}\r\n\r\n#menu {\r\n  flex-grow: 2;\r\n}\r\n\r\n#menu ul {\r\n  display: inline-block;\r\n  list-style-type: none;\r\n  margin: 0;\r\n  padding: 0;\r\n  height: 100%;\r\n}\r\n\r\nli {\r\n  display: inline-block;\r\n  margin: 0px 10px 0px 10px;\r\n}\r\n\r\nli a{\r\n  text-decoration: none;\r\n  color: white;\r\n}")
+;(function(){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  name: "header",
+  data: function data() {
+    return {};
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"header"},[_c('div',{attrs:{"id":"logo"}},[_c('h3',[_vm._v("Senti-Bot")])]),_vm._v(" "),_c('div',{attrs:{"id":"menu"}},[_c('ul',[_c('li',[_c('a',{attrs:{"href":"#"}},[_vm._v("gitHub")])]),_vm._v(" "),_c('li',[_c('button',{staticClass:"btn btn-primary"},[_vm._v("Log In")])])])])])}]
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  module.hot.dispose(__vueify_style_dispose__)
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-a478fce6", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-a478fce6", __vue__options__)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],11:[function(require,module,exports){
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("p {\r\n  display: block;\r\n  height: 50px;\r\n  border: 2px solid grey;\r\n  margin: 5px;\r\n  padding: 0;\r\n  text-align: center;\r\n  line-height: 50px;\r\n}")
+;(function(){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  name: "tweetWindow",
+  props: ["messages"],
+  data: function data() {
+    return {};
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',_vm._l((_vm.messages),function(tweet){return _c('p',[_vm._v(_vm._s(tweet.text)+" + "+_vm._s(tweet.score))])}))}
+__vue__options__.staticRenderFns = []
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  module.hot.dispose(__vueify_style_dispose__)
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5365941e", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-5365941e", __vue__options__)
+  }
+})()}
+},{"vue":4,"vue-hot-reload-api":2,"vueify/lib/insert-css":5}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7927,9 +8072,9 @@ var ioConnection = exports.ioConnection = io.connect('localhost:3000');
 _vue2.default.use(_vueSocket2.default, ioConnection);
 
 new _vue2.default({
-  el: "#app",
+  el: "#main",
   render: function render(h) {
     return h(_App2.default);
   }
 });
-},{"./components/App.vue":6,"vue":4,"vue-socket.io":3}]},{},[7]);
+},{"./components/App.vue":6,"vue":4,"vue-socket.io":3}]},{},[12]);

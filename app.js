@@ -5,7 +5,9 @@ var bodyParser = require("body-parser");
 
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 app.set("views", path.join(__dirname, "server", "views"))
 app.set("view engine", "ejs");
@@ -31,7 +33,7 @@ var analyser = require("./server/logic/sentiment");
 var twitter = require('twitter');
 var sentiment = require("sentiment");
 
-var agent = new twitter({
+const agent = new twitter({
 
   consumer_key: 'akeae4a68JRbcUfhTbjiCuDWq',
   consumer_secret: '8Zh9G76yNMjyBm8A3FU9fNCr6OBgLpIUTEllhvzlmho26msVUO',
@@ -43,23 +45,28 @@ var agent = new twitter({
 
 io.on("connection", function(socket) {
 
-    socket.on("query", function(searchTerm){
+  socket.on("query", function(searchTerm) {
 
-      var twitterStream = agent.stream("statuses/filter", {track: searchTerm});
+    var twitterStream = agent.stream("statuses/filter", {
+      track: searchTerm
+    });
 
-      twitterStream.on("data", function(tweet){
+    twitterStream.on("data", function(tweet) {
 
-          var result = sentiment(tweet.text).score;
+      var result = sentiment(tweet.text).score;
 
-          var text = tweet.text;
+      var text = tweet.text;
 
-          socket.emit("tweetReceived", {text: text, score: result});
-
+      socket.emit("tweetReceived", {
+        text: text,
+        score: result
       });
-
-
 
     });
 
-    socket.emit("connected");
+
+
+  });
+
+  socket.emit("connected");
 });

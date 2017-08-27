@@ -1,58 +1,72 @@
 <template>
-
 <div id="app">
-  <p v-for="tweet in messages">{{ tweet.text }} + {{ tweet.score }}</p>
-  <p>{{ cumulativeScore }}</p>
+  <app-header></app-header>
+  <app-tweetW v-bind:messages="messages"></app-tweetW>
 </div>
-
 </template>
 
 <script>
+import header from "./header.vue";
+import chart1 from "./chart1.vue";
+import chart2 from "./chart2.vue";
+import chart3 from "./chart3.vue";
+import tweetWindow from "./tweetWindow.vue";
+
+
+
 
 export default {
   name: "app",
+  components: {
+    "app-header": header,
+    "app-chart1": chart1,
+    "app-chart2": chart2,
+    "app-chart3": chart3,
+    "app-tweetW": tweetWindow
+  },
   data() {
     return {
       messages: [],
       tweetCount: 0,
       cumulativeScore: 0,
+      averageScore: 0,
       sentimentMap: {
         somewhatN: {
-        count: 0,
-        score: "-1",
-        rating: "somewhat negative"
-      },
+          count: 0,
+          score: "-1",
+          rating: "somewhat negative"
+        },
         negative: {
-        count: 0,
-        score: "-2",
-        rating: "negative"
-      },
+          count: 0,
+          score: "-2",
+          rating: "negative"
+        },
         veryNegative: {
-        count: 0,
-        score: "<=-3",
-        rating: "very negative"
-      },
+          count: 0,
+          score: "<=-3",
+          rating: "very negative"
+        },
         neutral: {
-        count: 0,
-        score: "0",
-        rating: "neutral"
-      },
+          count: 0,
+          score: "0",
+          rating: "neutral"
+        },
         somewhatP: {
-        count: 0,
-        score: "1",
-        rating: "somehwat positive"
-      },
+          count: 0,
+          score: "1",
+          rating: "somehwat positive"
+        },
         positive: {
-        count: 0,
-        score: "2",
-        rating: "positive"
-      },
+          count: 0,
+          score: "2",
+          rating: "positive"
+        },
         veryPositive: {
-        count: 0,
-        score: ">=3",
-        rating: "positive"
-      },
-    }
+          count: 0,
+          score: ">=3",
+          rating: "positive"
+        },
+      }
     }
   },
 
@@ -62,11 +76,11 @@ export default {
     },
 
     tweetReceived(tweet) {
-      if(this.messages.length >= 8) {
+      if (this.messages.length >= 8) {
         this.messages.shift();
       }
-        this.messages.push(tweet);
-        this.processTweets(tweet);
+      this.messages.push(tweet);
+      this.processTweets(tweet);
 
     }
   },
@@ -75,6 +89,7 @@ export default {
     processTweets(tweet) {
       this.tweetCount++;
       this.cumulativeScore = this.cumulativeScore + tweet.score;
+      this.averageScore = this.cumulativeScore / this.tweetCount;
 
       if (tweet.score == 0) {
         this.sentimentMap.neutral.count++;
@@ -94,20 +109,10 @@ export default {
 
     },
 
-    }
   }
-
-
+}
 </script>
 
 <style scoped media="screen">
-  p {
-    display: block;
-    height: 50px;
-    border: 2px solid grey;
-    margin: 5px;
-    padding: 0;
-    text-align: center;
-    line-height: 50px;
-  }
+
 </style>

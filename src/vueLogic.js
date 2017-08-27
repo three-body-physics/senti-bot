@@ -7,6 +7,6 @@ export const ioConnection = io.connect('localhost:3000');
 Vue.use(vueSocket, ioConnection);
 
 new Vue({
-  el: "#app",
+  el: "#main",
   render: h => h(App)
 });

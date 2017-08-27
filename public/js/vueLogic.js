@@ -24,7 +24,7 @@ var ioConnection = exports.ioConnection = io.connect('localhost:3000');
 _vue2.default.use(_vueSocket2.default, ioConnection);
 
 new _vue2.default({
-  el: "#app",
+  el: "#main",
   render: function render(h) {
     return h(_App2.default);
   }
