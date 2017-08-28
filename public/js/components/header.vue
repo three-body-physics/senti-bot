@@ -5,6 +5,7 @@
     </div>
     <div id="menu">
       <ul>
+        <li><input type="text" v-model="searchTerm"><button class="btn btn-primary" type="button" @click="searchTwitter">Search</button></li>
         <li><a href="#">gitHub</a></li>
         <li><button class="btn btn-primary">Log In</button></li>
       </ul>
@@ -18,7 +19,13 @@ export default {
   name: "header",
   data() {
     return {
+        searchTerm: ""
+    }
+  },
 
+  methods: {
+    searchTwitter() {
+      this.$emit("startStream", this.searchTerm);
     }
   }
 }
@@ -33,7 +40,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
   color: white;
@@ -58,9 +65,14 @@ export default {
 #menu ul {
   display: inline-block;
   list-style-type: none;
-  margin: 0;
+  margin: 0 5% 0 0;
   padding: 0;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
 }
 
 li {
@@ -71,6 +83,11 @@ li {
 li a{
   text-decoration: none;
   color: white;
+}
+li input {
+  color: black;
+  height: 100%; 
+
 }
 
 </style>

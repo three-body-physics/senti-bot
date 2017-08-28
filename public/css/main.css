@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:200');
+@import url('https://fonts.googleapis.com/css?family=Alegreya:400i');
+
+
 html, body {
   margin: 0;
+  padding: 0;
   height: 100%;
   font-family: 'Fira Sans', sans-serif;
+  background: rgb(238, 238, 238);
 }
 
 * {
   box-sizing: border-box;
   text-align: center;
-}
+  margin: 0;
+  padding: 0;
 
 .main {
   color: red;

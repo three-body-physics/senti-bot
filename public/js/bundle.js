@@ -35372,7 +35372,7 @@ exports.insert = function (css) {
 }
 
 },{}],56:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("#app[data-v-7fda0b9e] {\n  height: 100vh;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n}\n\n.chartArea[data-v-7fda0b9e] {\n  height: 300px;\n  width: 400px;\n  display: flex;\n  flex-direction: row;\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("#app[data-v-7fda0b9e] {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  background: rgb(238, 238, 238);\n}\n\n.chartArea[data-v-7fda0b9e] {\n\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  flex-wrap: wrap;\n  background: rgb(238, 238, 238);\n}\n\n.chartArea div div[data-v-7fda0b9e] {\n\n  margin: 0;\n  padding: 0;\n  background: white;\n  border-radius: 5%;\n}\n\n.chartWrapper[data-v-7fda0b9e] {\n\n  width: 100%;\n  height: 100%;\n  margin: 0.5%;\n  padding: 0;\n  background: white;\n  overflow: hidden;\n  position: relative;\n  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n}\n\n.windowWrapper[data-v-7fda0b9e] {\n\n  width: 100%;\n  height: 100%%;\n  margin: 0.5%;\n  padding: 0;\n  background: white;\n  overflow: hidden;\n  position: relative;\n  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n}\n\n\n@media (min-width: 65em) {\n\n  .chartWrapper[data-v-7fda0b9e] {\n\n    width: 32%;\n    height: 100%;\n    margin: 0.5%;\n    padding: 0;\n    background: white;\n    overflow: hidden;\n    position: relative;\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  }\n\n  .windowWrapper[data-v-7fda0b9e] {\n\n    width: 32%;\n    height: 20%;\n    margin: 0.5%;\n    padding: 0;\n    background: white;\n    overflow: hidden;\n    position: relative;\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  }\n}\n\n@media (min-width: 49em) and (max-width: 64em) {\n\n  .chartWrapper[data-v-7fda0b9e] {\n\n    width: 47%;\n    height: 100%;\n    margin: 0.5%;\n    padding: 0;\n    background: white;\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  }\n\n  .windowWrapper[data-v-7fda0b9e] {\n\n    width: 47%;\n    height: 481px;\n    margin: 0.5%;\n    padding: 0;\n    background: white;\n    overflow: hidden;\n    position: relative;\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\n  }\n}")
 ;(function(){
 "use strict";
 
@@ -35388,6 +35388,14 @@ var _tweetWindow = require("./tweetWindow.vue");
 
 var _tweetWindow2 = _interopRequireDefault(_tweetWindow);
 
+var _statsScreen = require("./statsScreen.vue");
+
+var _statsScreen2 = _interopRequireDefault(_statsScreen);
+
+var _averageScreen = require("./averageScreen.vue");
+
+var _averageScreen2 = _interopRequireDefault(_averageScreen);
+
 var _vueChartjs = require("vue-chartjs");
 
 var _vueChartjs2 = _interopRequireDefault(_vueChartjs);
@@ -35399,7 +35407,31 @@ var _vue2 = _interopRequireDefault(_vue);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.component('bar-chart', {
-  extends: _vueChartjs2.default.Bar,
+  extends: _vueChartjs2.default.HorizontalBar,
+  mixins: [_vueChartjs2.default.mixins.reactiveProp],
+  props: ["chartData", 'options'],
+  mounted: function mounted() {
+    this.renderChart(this.chartData, {
+      responsive: true,
+      maintainAspectRatio: false
+    });
+  }
+});
+
+_vue2.default.component('radar-chart', {
+  extends: _vueChartjs2.default.Radar,
+  mixins: [_vueChartjs2.default.mixins.reactiveProp],
+  props: ["chartData", 'options'],
+  mounted: function mounted() {
+    this.renderChart(this.chartData, {
+      responsive: true,
+      maintainAspectRatio: false
+    });
+  }
+});
+
+_vue2.default.component('doughnut-chart', {
+  extends: _vueChartjs2.default.Doughnut,
   mixins: [_vueChartjs2.default.mixins.reactiveProp],
   props: ["chartData", 'options'],
   mounted: function mounted() {
@@ -35414,12 +35446,16 @@ exports.default = {
   name: "app",
   components: {
     "app-header": _header2.default,
-    "app-tweetW": _tweetWindow2.default
+    "app-tweetW": _tweetWindow2.default,
+    "app-statsScreen": _statsScreen2.default,
+    "app-averageScreen": _averageScreen2.default
   },
   data: function data() {
     return {
       messages: [],
+      hashtag: "",
       tweetCount: 0,
+      tweetCountNoNeutral: 0,
       cumulativeScore: 0,
       averageScore: 0,
       sentimentMap: {
@@ -35459,18 +35495,23 @@ exports.default = {
           rating: "positive"
         }
       },
+
       countInstances: [0, 0, 0, 0, 0, 0, 0],
-      chartData: {}
+      parcentageData: [0, 0, 0, 0, 0, 0, 0],
+      parcentageDataNoNeutral: [0, 0, 0, 0, 0, 0],
+      chartData: {},
+      chartDataNoNeutral: {},
+      positiveCount: 0,
+      negativeCount: 0
+
     };
   },
 
 
   sockets: {
-    connect: function connect() {
-      this.$socket.emit("query", "trump");
-    },
+    connect: function connect() {},
     tweetReceived: function tweetReceived(tweet) {
-      if (this.messages.length >= 8) {
+      if (this.messages.length >= 3) {
         this.messages.shift();
       }
       this.messages.push(tweet);
@@ -35486,26 +35527,44 @@ exports.default = {
       this.averageScore = this.cumulativeScore / this.tweetCount;
 
       if (tweet.score == 0) {
-        this.sentimentMap.neutral.count++;
         this.countInstances[3]++;
+        this.parcentageData[3] = Math.floor(this.countInstances[3] / this.tweetCount * 100);
       } else if (tweet.score == 1) {
-        this.sentimentMap.somewhatP.count++;
         this.countInstances[4]++;
+        this.positiveCount++;
+        this.tweetCountNoNeutral++;
+        this.parcentageDataNoNeutral[3] = Math.floor(this.countInstances[4] / this.tweetCountNoNeutral * 100);
+        this.parcentageData[4] = Math.floor(this.countInstances[4] / this.tweetCount * 100);
       } else if (tweet.score == 2) {
-        this.sentimentMap.positive.count++;
         this.countInstances[5]++;
+        this.positiveCount++;
+        this.tweetCountNoNeutral++;
+        this.parcentageDataNoNeutral[4] = Math.floor(this.countInstances[5] / this.tweetCountNoNeutral * 100);
+        this.parcentageData[5] = Math.floor(this.countInstances[5] / this.tweetCount * 100);
       } else if (tweet.score >= 3) {
-        this.sentimentMap.veryPositive.count++;
         this.countInstances[6]++;
+        this.positiveCount++;
+        this.tweetCountNoNeutral++;
+        this.parcentageDataNoNeutral[5] = Math.floor(this.countInstances[6] / this.tweetCountNoNeutral * 100);
+        this.parcentageData[6] = Math.floor(this.countInstances[6] / this.tweetCount * 100);
       } else if (tweet.score == -1) {
-        this.sentimentMap.somewhatN.count++;
         this.countInstances[2]++;
+        this.negativeCount++;
+        this.tweetCountNoNeutral++;
+        this.parcentageDataNoNeutral[2] = Math.floor(this.countInstances[2] / this.tweetCountNoNeutral * 100);
+        this.parcentageData[2] = Math.floor(this.countInstances[2] / this.tweetCount * 100);
       } else if (tweet.score == -2) {
-        this.sentimentMap.negative.count++;
         this.countInstances[1]++;
+        this.negativeCount++;
+        this.tweetCountNoNeutral++;
+        this.parcentageDataNoNeutral[1] = Math.floor(this.countInstances[1] / this.tweetCountNoNeutral * 100);
+        this.parcentageData[1] = Math.floor(this.countInstances[1] / this.tweetCount * 100);
       } else if (tweet.score <= -3) {
-        this.sentimentMap.veryNegative.count++;
         this.countInstances[0]++;
+        this.negativeCount++;
+        this.tweetCountNoNeutral++;
+        this.parcentageDataNoNeutral[0] = Math.floor(this.countInstances[0] / this.tweetCountNoNeutral * 100);
+        this.parcentageData[0] = Math.floor(this.countInstances[0] / this.tweetCount * 100);
       }
     },
     changeData: function changeData() {
@@ -35513,11 +35572,26 @@ exports.default = {
       this.chartData = {
         labels: ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"],
         datasets: [{
-          label: "Tweet count",
-          backgroundColor: "#f87979",
-          data: this.countInstances
+          label: "percentage",
+          backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)', 'rgba(255, 159, 64, 0.6)', 'rgba(205, 129, 44, 0.6)'],
+          borderWidth: 1,
+          data: this.parcentageData
         }]
       };
+
+      this.chartDataNoNeutral = {
+        labels: ["Very Negative", "Negative", "Slightly Negative", "Slightly Positive", "Positive", "Very Positive"],
+        datasets: [{
+          label: "Percentage",
+          backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)', 'rgba(255, 159, 64, 0.6)', 'rgba(205, 129, 44, 0.6)'],
+          borderWidth: 1,
+          data: this.parcentageDataNoNeutral
+        }]
+      };
+    },
+    startStream: function startStream(data) {
+      this.$socket.emit("query", data);
+      this.hashtag = data;
     }
   }
 };
@@ -35525,7 +35599,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('app-header'),_vm._v(" "),_c('div',{staticClass:"chartArea"},[_c('bar-chart',{attrs:{"chart-data":_vm.chartData}})],1)],1)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('app-header',{on:{"startStream":function($event){_vm.startStream($event)}}}),_vm._v(" "),_c('div',{staticClass:"chartArea"},[_c('div',{staticClass:"chartWrapper"},[_c('bar-chart',{attrs:{"chart-data":_vm.chartData}})],1),_vm._v(" "),_c('div',{staticClass:"chartWrapper"},[_c('radar-chart',{attrs:{"chart-data":_vm.chartDataNoNeutral}})],1),_vm._v(" "),_c('div',{staticClass:"chartWrapper"},[_c('doughnut-chart',{attrs:{"chart-data":_vm.chartDataNoNeutral}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-statsScreen',{attrs:{"tweet-count":_vm.tweetCount,"hashtag":_vm.hashtag}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-averageScreen',{attrs:{"average":_vm.averageScore,"positive-count":_vm.positiveCount,"negative-count":_vm.negativeCount}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-tweetW',{attrs:{"messages":_vm.messages}})],1)])],1)}
 __vue__options__.staticRenderFns = []
 __vue__options__._scopeId = "data-v-7fda0b9e"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
@@ -35539,8 +35613,39 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-7fda0b9e", __vue__options__)
   }
 })()}
-},{"./header.vue":57,"./tweetWindow.vue":58,"vue":54,"vue-chartjs":51,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],57:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".header {\r\n  background: rgb(15, 10, 28);\r\n  height: 50px;\r\n  border-bottom: 1px solid grey;\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: flex-start;\r\n  align-items: center;\r\n  align-content: center;\r\n  color: white;\r\n\r\n}\r\n#logo {\r\n  flex-grow: 1;\r\n}\r\n\r\n#logo h3 {\r\n  height: 100%;\r\n  text-align: left;\r\n  font-weight: bold;\r\n  margin: 0 0 0 5%;\r\n  padding: 0;\r\n}\r\n\r\n#menu {\r\n  flex-grow: 2;\r\n}\r\n\r\n#menu ul {\r\n  display: inline-block;\r\n  list-style-type: none;\r\n  margin: 0;\r\n  padding: 0;\r\n  height: 100%;\r\n}\r\n\r\nli {\r\n  display: inline-block;\r\n  margin: 0px 10px 0px 10px;\r\n}\r\n\r\nli a{\r\n  text-decoration: none;\r\n  color: white;\r\n}")
+},{"./averageScreen.vue":57,"./header.vue":58,"./statsScreen.vue":59,"./tweetWindow.vue":60,"vue":54,"vue-chartjs":51,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],57:[function(require,module,exports){
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("div[data-v-0a754719] {\r\n\r\nheight: 100%;\r\nwidth: 100%;\r\npadding: 0;\r\nmargin-left: 0;\r\n\r\n}\r\n\r\nh2[data-v-0a754719] {\r\n  font-weight: 200%;\r\n}")
+;(function(){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  name: "averageScreen",
+  props: ["average", "positiveCount", "negativeCount"]
+
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0),_vm._v(" "),_c('hr'),_vm._v(" "),_c('h3',[_vm._v("Positive tweets: "+_vm._s(_vm.positiveCount))]),_vm._v(" "),_c('h3',[_vm._v("Negative tweets: "+_vm._s(_vm.negativeCount))])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('h2',[_c('i',{staticClass:"fa fa-fire",attrs:{"aria-hidden":"true"}}),_vm._v("   Sentiment:")])}]
+__vue__options__._scopeId = "data-v-0a754719"
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  module.hot.dispose(__vueify_style_dispose__)
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0a754719", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-0a754719", __vue__options__)
+  }
+})()}
+},{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],58:[function(require,module,exports){
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".header {\r\n  background: rgb(15, 10, 28);\r\n  height: 50px;\r\n  border-bottom: 1px solid grey;\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  align-content: center;\r\n  color: white;\r\n\r\n}\r\n#logo {\r\n  flex-grow: 1;\r\n}\r\n\r\n#logo h3 {\r\n  height: 100%;\r\n  text-align: left;\r\n  font-weight: bold;\r\n  margin: 0 0 0 5%;\r\n  padding: 0;\r\n}\r\n\r\n#menu {\r\n  flex-grow: 2;\r\n}\r\n\r\n#menu ul {\r\n  display: inline-block;\r\n  list-style-type: none;\r\n  margin: 0 5% 0 0;\r\n  padding: 0;\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-end;\r\n  align-items: center;\r\n  align-content: center;\r\n}\r\n\r\nli {\r\n  display: inline-block;\r\n  margin: 0px 10px 0px 10px;\r\n}\r\n\r\nli a{\r\n  text-decoration: none;\r\n  color: white;\r\n}\r\nli input {\r\n  color: black;\r\n  height: 100%; \r\n\r\n}")
 ;(function(){
 "use strict";
 
@@ -35550,15 +35655,24 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   name: "header",
   data: function data() {
-    return {};
+    return {
+      searchTerm: ""
+    };
+  },
+
+
+  methods: {
+    searchTwitter: function searchTwitter() {
+      this.$emit("startStream", this.searchTerm);
+    }
   }
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"header"},[_c('div',{attrs:{"id":"logo"}},[_c('h3',[_vm._v("Senti-Bot")])]),_vm._v(" "),_c('div',{attrs:{"id":"menu"}},[_c('ul',[_c('li',[_c('a',{attrs:{"href":"#"}},[_vm._v("gitHub")])]),_vm._v(" "),_c('li',[_c('button',{staticClass:"btn btn-primary"},[_vm._v("Log In")])])])])])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"header"},[_vm._m(0),_vm._v(" "),_c('div',{attrs:{"id":"menu"}},[_c('ul',[_c('li',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.searchTerm),expression:"searchTerm"}],attrs:{"type":"text"},domProps:{"value":(_vm.searchTerm)},on:{"input":function($event){if($event.target.composing){ return; }_vm.searchTerm=$event.target.value}}}),_c('button',{staticClass:"btn btn-primary",attrs:{"type":"button"},on:{"click":_vm.searchTwitter}},[_vm._v("Search")])]),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2)])])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"logo"}},[_c('h3',[_vm._v("Senti-Bot")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',[_c('a',{attrs:{"href":"#"}},[_vm._v("gitHub")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',[_c('button',{staticClass:"btn btn-primary"},[_vm._v("Log In")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -35570,8 +35684,39 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-a478fce6", __vue__options__)
   }
 })()}
-},{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],58:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("p {\r\n  display: block;\r\n  height: 50px;\r\n  border: 2px solid grey;\r\n  margin: 5px;\r\n  padding: 0;\r\n  text-align: center;\r\n  line-height: 50px;\r\n}")
+},{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],59:[function(require,module,exports){
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("div[data-v-736b991b] {\r\n\r\nheight: 100%;\r\nwidth: 100%;\r\npadding: 0;\r\nmargin-left: 0;\r\n\r\n}\r\n\r\nh2[data-v-736b991b] {\r\n  font-weight: 200%;\r\n\r\n}")
+;(function(){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  name: "statsScreen",
+  props: ["tweetCount", "hashtag"]
+
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0),_vm._v(" "),_c('hr'),_vm._v(" "),_c('h3',[_vm._v("hashtag: "+_vm._s("#" + _vm.hashtag))]),_vm._v(" "),_c('h3',[_vm._v("Tweets: "+_vm._s(_vm.tweetCount))])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('h2',[_c('i',{staticClass:"fa fa-rss",attrs:{"aria-hidden":"true"}}),_vm._v("     Status")])}]
+__vue__options__._scopeId = "data-v-736b991b"
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  module.hot.dispose(__vueify_style_dispose__)
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-736b991b", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-736b991b", __vue__options__)
+  }
+})()}
+},{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],60:[function(require,module,exports){
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("@media (max-width: 48em) {\r\n\r\n  p[data-v-5365941e] {\r\n\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1em;\r\n  }\r\n}\r\n\r\n@media (min-width: 49em) and (max-width: 64em) {\r\n\r\n  p[data-v-5365941e] {\r\n\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1.5em;\r\n  }\r\n}\r\n\r\n@media (min-width: 65em) {\r\n\r\n  h3[data-v-5365941e] {\r\n    display: inline-block;\r\n    width: 100%;\r\n    height: 15%;\r\n    text-overflow: ellipsis;\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1.8em;\r\n    font-family: 'Alegreya', serif;\r\n  }\r\n}")
 ;(function(){
 "use strict";
 
@@ -35589,8 +35734,9 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',_vm._l((_vm.messages),function(tweet){return _c('p',[_vm._v(_vm._s(tweet.text)+" + "+_vm._s(tweet.score))])}))}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',_vm._l((_vm.messages),function(tweet){return _c('h3',[_vm._v(_vm._s(tweet.text))])}))}
 __vue__options__.staticRenderFns = []
+__vue__options__._scopeId = "data-v-5365941e"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -35602,7 +35748,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-5365941e", __vue__options__)
   }
 })()}
-},{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],59:[function(require,module,exports){
+},{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],61:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35637,4 +35783,4 @@ new _vue2.default({
   }
 });
 
-},{"./components/App.vue":56,"vue":54,"vue-socket.io":53}]},{},[59]);
+},{"./components/App.vue":56,"vue":54,"vue-socket.io":53}]},{},[61]);

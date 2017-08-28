@@ -68,5 +68,5 @@ io.on("connection", function(socket) {
 
   });
 
-  socket.emit("connected");
+  // socket.emit("connected");
 });
