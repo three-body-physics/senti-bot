@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <h3 v-for="tweet in messages">{{ tweet.text }}</h3>
+    <h3 v-for="tweet in messages">{{ tweet.text }}</h3>    
   </div>
 </template>
 
