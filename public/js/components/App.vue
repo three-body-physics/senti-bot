@@ -34,16 +34,9 @@ import VueCharts from 'vue-chartjs';
 import Vue from "vue";
 import firebase from "firebase"
 
-const config = {
-  apiKey: "AIzaSyDYi31JBsgT0fjxW3maIrF5FGoYGYC7ak8",
-  authDomain: "senti-bot-bffe2.firebaseapp.com",
-  databaseURL: "https://senti-bot-bffe2.firebaseio.com",
-  projectId: "senti-bot-bffe2",
-  storageBucket: "senti-bot-bffe2.appspot.com",
-  messagingSenderId: "276024486836"
-};
+import firebaseKey from "./firebasekey.js"
 
-let fireApp = firebase.initializeApp(config);
+let fireApp = firebase.initializeApp(firebaseKey.key);
 let db = fireApp.database();
 
 
