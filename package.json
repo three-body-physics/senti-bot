@@ -13,6 +13,7 @@
     "chart.js": "^2.6.0",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "firebase": "^4.3.0",
     "sentiment": "^4.0.0",
     "socket.io": "^2.0.3",
     "twitter": "^1.7.1",

@@ -32,6 +32,20 @@ import statsScreen from "./statsScreen.vue";
 import averageScreen from "./averageScreen.vue";
 import VueCharts from 'vue-chartjs';
 import Vue from "vue";
+import firebase from "firebase"
+
+const config = {
+  apiKey: "AIzaSyDYi31JBsgT0fjxW3maIrF5FGoYGYC7ak8",
+  authDomain: "senti-bot-bffe2.firebaseapp.com",
+  databaseURL: "https://senti-bot-bffe2.firebaseio.com",
+  projectId: "senti-bot-bffe2",
+  storageBucket: "senti-bot-bffe2.appspot.com",
+  messagingSenderId: "276024486836"
+};
+
+let fireApp = firebase.initializeApp(config);
+let db = fireApp.database();
+
 
 
 Vue.component('bar-chart', {
@@ -91,44 +105,6 @@ export default {
       tweetCountNoNeutral: 0,
       cumulativeScore: 0,
       averageScore: 0,
-      sentimentMap: {
-        somewhatN: {
-          count: 0,
-          score: "-1",
-          rating: "somewhat negative"
-        },
-        negative: {
-          count: 0,
-          score: "-2",
-          rating: "negative"
-        },
-        veryNegative: {
-          count: 0,
-          score: "<=-3",
-          rating: "very negative"
-        },
-        neutral: {
-          count: 0,
-          score: "0",
-          rating: "neutral"
-        },
-        somewhatP: {
-          count: 0,
-          score: "1",
-          rating: "somehwat positive"
-        },
-        positive: {
-          count: 0,
-          score: "2",
-          rating: "positive"
-        },
-        veryPositive: {
-          count: 0,
-          score: ">=3",
-          rating: "positive"
-        }
-      }, // sentimentMap
-
       countInstances: [0, 0, 0, 0, 0, 0, 0],
       parcentageData: [0, 0, 0, 0, 0, 0, 0],
       parcentageDataNoNeutral: [0, 0, 0, 0, 0, 0],
@@ -262,6 +238,8 @@ export default {
   }
 }
 </script>
+
+<!-- CSS -->
 
 <style scoped>
 #app {
