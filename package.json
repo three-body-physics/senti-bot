@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "babel src -d public/js && babel --presets es2015 src -d public/js && browserify -t vueify -e public/js/vueLogic.js -o public/js/bundle.js"
+    "build": "babel src -d public/js && babel --presets es2015 src -d public/js && browserify -t vueify -e public/js/vueLogic.js -o public/js/bundle.js",
+    "start": "node app.js"
   },
   "author": "ksha",
   "license": "ISC",
