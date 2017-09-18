@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var path = require("path");
 var bodyParser = require("body-parser");
-
+var port = process.env.PORT || 3000
 
 
 app.use(bodyParser.urlencoded({
@@ -21,7 +21,7 @@ app.use("/", routes);
 
 
 
-var server = require('http').Server(app).listen(3000, "localhost");
+var server = require('http').Server(app).listen(port);
 var io = require('socket.io').listen(server);
 
 

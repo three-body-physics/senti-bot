@@ -19,7 +19,7 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ioConnection = exports.ioConnection = io.connect('localhost:3000');
+var ioConnection = exports.ioConnection = io();
 
 _vue2.default.use(_vueSocket2.default, ioConnection);
 

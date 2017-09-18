@@ -2,7 +2,7 @@ import Vue from "vue";
 import vueSocket from "vue-socket.io";
 import App from "./components/App.vue";
 
-export const ioConnection = io.connect('localhost:3000');
+export const ioConnection = io();
 
 Vue.use(vueSocket, ioConnection);
 
