@@ -25,8 +25,6 @@ var server = require('http').Server(app).listen(3000, "localhost");
 var io = require('socket.io').listen(server);
 
 
-var analyser = require("./server/logic/sentiment");
-
 
 //sentiment
 
@@ -58,6 +56,10 @@ io.on("connection", function(socket) {
       });
 
     });
+
+    twitterStream.on("error", function(err){
+      socket.emit("errorEvent", {errorMsg: err});
+    })
 
 
 

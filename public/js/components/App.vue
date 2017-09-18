@@ -32,12 +32,12 @@ import statsScreen from "./statsScreen.vue";
 import averageScreen from "./averageScreen.vue";
 import VueCharts from 'vue-chartjs';
 import Vue from "vue";
-import firebase from "firebase"
-
-import firebaseKey from "./firebasekey.js"
-
-let fireApp = firebase.initializeApp(firebaseKey.key);
-let db = fireApp.database();
+// import firebase from "firebase"
+//
+// import firebaseKey from "./firebasekey.js"
+//
+// let fireApp = firebase.initializeApp(firebaseKey.key);
+// let db = fireApp.database();
 
 
 
@@ -46,7 +46,6 @@ Vue.component('bar-chart', {
   mixins: [VueCharts.mixins.reactiveProp],
   props: ["chartData", 'options'],
   mounted() {
-    // this.chartData is created in the mixin
     this.renderChart(this.chartData, {
       responsive: true,
       maintainAspectRatio: false
@@ -59,7 +58,6 @@ Vue.component('radar-chart', {
   mixins: [VueCharts.mixins.reactiveProp],
   props: ["chartData", 'options'],
   mounted() {
-    // this.chartData is created in the mixin
     this.renderChart(this.chartData, {
       responsive: true,
       maintainAspectRatio: false
@@ -72,7 +70,6 @@ Vue.component('doughnut-chart', {
   mixins: [VueCharts.mixins.reactiveProp],
   props: ["chartData", 'options'],
   mounted() {
-    // this.chartData is created in the mixin
     this.renderChart(this.chartData, {
       responsive: true,
       maintainAspectRatio: false
@@ -123,7 +120,10 @@ export default {
       this.processTweets(tweet);
       this.changeData();
 
+    },
 
+    errorEvent(errorMsg) {
+      console.log(error);
     }
   }, //sockets
 
@@ -190,8 +190,8 @@ export default {
         datasets: [{
           label: "percentage",
           backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
+            'rgba(232, 0, 0, 1)',
+            'rgba(0, 81, 164, 1)',
             'rgba(255, 206, 86, 0.6)',
             'rgba(75, 192, 192, 0.6)',
             'rgba(153, 102, 255, 0.6)',
@@ -210,10 +210,10 @@ export default {
           backgroundColor: [
             'rgba(255, 99, 132, 0.6)',
             'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
+            'rgba(232, 0, 0, 1)',
             'rgba(75, 192, 192, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(205, 129, 44, 0.6)'
+            'rgba(0, 135, 14, 1)',
+            'rgba(0, 81, 164, 1)',
           ],
           borderWidth: 1,
           data: this.parcentageDataNoNeutral

@@ -5,9 +5,9 @@
     </div>
     <div id="menu">
       <ul>
-        <li><input type="text" v-model="searchTerm"><button class="btn btn-primary" type="button" @click="searchTwitter">Search</button></li>
+        <li><input type="text" placeholder="keyword" v-model="searchTerm"><button class="btn btn-primary" type="button" @click="searchTwitter">Search</button></li>
         <li><a href="#">gitHub</a></li>
-        <li><button class="btn btn-primary">Log In</button></li>
+        <li></li>
       </ul>
     </div>
   </div>
@@ -86,8 +86,13 @@ li a{
 }
 li input {
   color: black;
-  height: 100%; 
+  height: 3em;
+  width: 14em;
+  margin: 1em;
+
 
 }
+
+
 
 </style>
