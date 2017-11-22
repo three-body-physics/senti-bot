@@ -17,6 +17,13 @@ export default {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');
+
+p, h3 {
+    font-family: 'Tinos', serif;
+}
+
 @media (max-width: 48em) {
 
   p {

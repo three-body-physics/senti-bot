@@ -1,13 +1,12 @@
 <template lang="html">
   <div class="header">
     <div id="logo">
-      <h3>Senti-Bot</h3>
+      <h4>Senti-Bot</h4>
     </div>
     <div id="menu">
       <ul>
-        <li><input type="text" placeholder="keyword" v-model="searchTerm"><button class="btn btn-primary" type="button" @click="searchTwitter">Search</button></li>
-        <li><a href="#">gitHub</a></li>
-        <li></li>
+        <li><input type="text" placeholder="keyword" v-model="searchTerm" value="net neutrality"></li>
+        <li><button class="btn btn-primary" type="button" @click="searchTwitter">Search</button></li>            
       </ul>
     </div>
   </div>
@@ -32,6 +31,12 @@ export default {
 </script>
 
 <style lang="css">
+ @import url('https://fonts.googleapis.com/css?family=Tinos:400,700');
+
+* {
+
+    font-family: 'Tinos', serif;
+}
 
 .header {
   background: rgb(15, 10, 28);

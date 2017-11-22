@@ -35372,7 +35372,7 @@ exports.insert = function (css) {
 }
 
 },{}],56:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("#app[data-v-7fda0b9e] {\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  background: rgb(238, 238, 238);\r\n}\r\n\r\n.chartArea[data-v-7fda0b9e] {\r\n\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n  flex-wrap: wrap;\r\n  background: rgb(238, 238, 238);\r\n}\r\n\r\n.chartArea div div[data-v-7fda0b9e] {\r\n\r\n  margin: 0;\r\n  padding: 0;\r\n  background: white;\r\n  border-radius: 5%;\r\n}\r\n\r\n.chartWrapper[data-v-7fda0b9e] {\r\n\r\n  width: 100%;\r\n  height: 100%;\r\n  margin: 0.5%;\r\n  padding: 0;\r\n  background: white;\r\n  overflow: hidden;\r\n  position: relative;\r\n  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n}\r\n\r\n.windowWrapper[data-v-7fda0b9e] {\r\n\r\n  width: 100%;\r\n  height: 100%%;\r\n  margin: 0.5%;\r\n  padding: 0;\r\n  background: white;\r\n  overflow: hidden;\r\n  position: relative;\r\n  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n}\r\n\r\n\r\n@media (min-width: 65em) {\r\n\r\n  .chartWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 32%;\r\n    height: 100%;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    overflow: hidden;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n\r\n  .windowWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 32%;\r\n    height: 20%;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    overflow: hidden;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n}\r\n\r\n@media (min-width: 49em) and (max-width: 64em) {\r\n\r\n  .chartWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 47%;\r\n    height: 100%;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n\r\n  .windowWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 47%;\r\n    height: 481px;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    overflow: hidden;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');\r\n*[data-v-7fda0b9e] {\r\n  font-family: 'Tinos', serif;\r\n}\r\n#app[data-v-7fda0b9e] {\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  background: rgb(238, 238, 238);\r\n}\r\n\r\n.chartArea[data-v-7fda0b9e] {\r\n\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n  flex-wrap: wrap;\r\n  background: rgb(238, 238, 238);\r\n  position: relative;\r\n}\r\n\r\n.error-window[data-v-7fda0b9e] {\r\n  width: 30%;\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  background: white;\r\n  z-index: 1000;\r\n  border: 1px solid black;\r\n}\r\n\r\n.chartArea div div[data-v-7fda0b9e] {\r\n\r\n  margin: 0;\r\n  padding: 0;\r\n  background: white;\r\n  border-radius: 5%;\r\n}\r\n\r\n.chartWrapper[data-v-7fda0b9e] {\r\n\r\n  width: 100%;\r\n  height: 100%;\r\n  margin: 0.5%;\r\n  padding: 0;\r\n  background: white;\r\n  overflow: hidden;\r\n  position: relative;\r\n  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n}\r\n\r\n.windowWrapper[data-v-7fda0b9e] {\r\n\r\n  width: 100%;\r\n  height: 100%%;\r\n  margin: 0.5%;\r\n  padding: 0;\r\n  background: white;\r\n  overflow: hidden;\r\n  position: relative;\r\n  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n}\r\n\r\n\r\n@media (min-width: 65em) {\r\n\r\n  .chartWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 32%;\r\n    height: 100%;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    overflow: hidden;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n\r\n  .windowWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 32%;\r\n    height: 20%;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    overflow: hidden;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n}\r\n\r\n@media (min-width: 49em) and (max-width: 64em) {\r\n\r\n\r\n  .chartWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 47%;\r\n    height: 100%;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n\r\n  .windowWrapper[data-v-7fda0b9e] {\r\n\r\n    width: 47%;\r\n    height: 481px;\r\n    margin: 0.5%;\r\n    padding: 0;\r\n    background: white;\r\n    overflow: hidden;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);\r\n  }\r\n}\r\n\r\n@media only screen and (max-width: 40em) { \r\n\r\n\r\n  .error-window[data-v-7fda0b9e] {\r\n  width: 100%;\r\n}\r\n\r\n}")
 ;(function(){
 "use strict";
 
@@ -35425,7 +35425,10 @@ _vue2.default.component('radar-chart', {
   mounted: function mounted() {
     this.renderChart(this.chartData, {
       responsive: true,
-      maintainAspectRatio: false
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      }
     });
   }
 });
@@ -35464,14 +35467,14 @@ exports.default = {
       chartData: {},
       chartDataNoNeutral: {},
       positiveCount: 0,
-      negativeCount: 0
+      negativeCount: 0,
+      error: false
 
     };
   },
 
 
   sockets: {
-    connect: function connect() {},
     tweetReceived: function tweetReceived(tweet) {
       if (this.messages.length >= 3) {
         this.messages.shift();
@@ -35481,7 +35484,13 @@ exports.default = {
       this.changeData();
     },
     errorEvent: function errorEvent(errorMsg) {
-      console.log(error);
+      var _this = this;
+
+      this.error = true;
+
+      setTimeout(function () {
+        _this.error = false;
+      });
     }
   },
 
@@ -35537,8 +35546,8 @@ exports.default = {
       this.chartData = {
         labels: ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"],
         datasets: [{
-          label: "percentage",
-          backgroundColor: ['rgba(232, 0, 0, 1)', 'rgba(0, 81, 164, 1)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)', 'rgba(153, 102, 255, 0.6)', 'rgba(255, 159, 64, 0.6)', 'rgba(205, 129, 44, 0.6)'],
+          label: "Percentage of tweets",
+          backgroundColor: ['rgba(232, 0, 0, 1)', 'rgba(0, 81, 164, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1', 'rgba(205, 129, 44, 1)'],
           borderWidth: 1,
           data: this.parcentageData
         }]
@@ -35547,8 +35556,8 @@ exports.default = {
       this.chartDataNoNeutral = {
         labels: ["Very Negative", "Negative", "Slightly Negative", "Slightly Positive", "Positive", "Very Positive"],
         datasets: [{
-          label: "Percentage",
-          backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(232, 0, 0, 1)', 'rgba(75, 192, 192, 0.6)', 'rgba(0, 135, 14, 1)', 'rgba(0, 81, 164, 1)'],
+          label: "Percentage of tweets",
+          backgroundColor: ['rgba(225, 0, 0, 0.8)', 'rgba(255, 127, 0, 1)', 'rgba(255, 180, 0, 1)', 'rgba(0, 157, 255, 1)', 'rgba(0, 29, 255, 1)', 'rgba(19, 114, 0, 1)'],
           borderWidth: 1,
           data: this.parcentageDataNoNeutral
         }]
@@ -35564,7 +35573,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('app-header',{on:{"startStream":function($event){_vm.startStream($event)}}}),_vm._v(" "),_c('div',{staticClass:"chartArea"},[_c('div',{staticClass:"chartWrapper"},[_c('bar-chart',{attrs:{"chart-data":_vm.chartData}})],1),_vm._v(" "),_c('div',{staticClass:"chartWrapper"},[_c('radar-chart',{attrs:{"chart-data":_vm.chartDataNoNeutral}})],1),_vm._v(" "),_c('div',{staticClass:"chartWrapper"},[_c('doughnut-chart',{attrs:{"chart-data":_vm.chartDataNoNeutral}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-statsScreen',{attrs:{"tweet-count":_vm.tweetCount,"hashtag":_vm.hashtag}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-averageScreen',{attrs:{"average":_vm.averageScore,"positive-count":_vm.positiveCount,"negative-count":_vm.negativeCount}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-tweetW',{attrs:{"messages":_vm.messages}})],1)])],1)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('app-header',{on:{"startStream":function($event){_vm.startStream($event)}}}),_vm._v(" "),_c('div',{staticClass:"chartArea"},[(_vm.error)?_c('div',{staticClass:"error-window"},[_c('h2',[_vm._v("Error occured please try another search term")])]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"chartWrapper"},[_c('bar-chart',{attrs:{"chart-data":_vm.chartData}})],1),_vm._v(" "),_c('div',{staticClass:"chartWrapper"},[_c('radar-chart',{attrs:{"chart-data":_vm.chartDataNoNeutral}})],1),_vm._v(" "),_c('div',{staticClass:"chartWrapper"},[_c('doughnut-chart',{attrs:{"chart-data":_vm.chartDataNoNeutral}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-statsScreen',{attrs:{"tweet-count":_vm.tweetCount,"hashtag":_vm.hashtag}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-averageScreen',{attrs:{"average":_vm.averageScore,"positive-count":_vm.positiveCount,"negative-count":_vm.negativeCount}})],1),_vm._v(" "),_c('div',{staticClass:"windowWrapper"},[_c('app-tweetW',{attrs:{"messages":_vm.messages}})],1)])],1)}
 __vue__options__.staticRenderFns = []
 __vue__options__._scopeId = "data-v-7fda0b9e"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
@@ -35579,7 +35588,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   }
 })()}
 },{"./averageScreen.vue":57,"./header.vue":58,"./statsScreen.vue":59,"./tweetWindow.vue":60,"vue":54,"vue-chartjs":51,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],57:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("div[data-v-0a754719] {\r\n\r\nheight: 100%;\r\nwidth: 100%;\r\npadding: 0;\r\nmargin-left: 0;\r\n\r\n}\r\n\r\nh2[data-v-0a754719] {\r\n  font-weight: 200%;\r\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');\r\n\r\nh2[data-v-0a754719], h3[data-v-0a754719] {\r\n    font-family: 'Tinos', serif;\r\n}\r\n\r\ndiv[data-v-0a754719] {\r\n\r\nheight: 100%;\r\nwidth: 100%;\r\npadding: 0;\r\nmargin-left: 0;\r\n\r\n}\r\n\r\nh2[data-v-0a754719] {\r\n  font-weight: 200%;\r\n}")
 ;(function(){
 "use strict";
 
@@ -35610,7 +35619,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   }
 })()}
 },{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],58:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".header {\r\n  background: rgb(15, 10, 28);\r\n  height: 50px;\r\n  border-bottom: 1px solid grey;\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  align-content: center;\r\n  color: white;\r\n\r\n}\r\n#logo {\r\n  flex-grow: 1;\r\n}\r\n\r\n#logo h3 {\r\n  height: 100%;\r\n  text-align: left;\r\n  font-weight: bold;\r\n  margin: 0 0 0 5%;\r\n  padding: 0;\r\n}\r\n\r\n#menu {\r\n  flex-grow: 2;\r\n}\r\n\r\n#menu ul {\r\n  display: inline-block;\r\n  list-style-type: none;\r\n  margin: 0 5% 0 0;\r\n  padding: 0;\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-end;\r\n  align-items: center;\r\n  align-content: center;\r\n}\r\n\r\nli {\r\n  display: inline-block;\r\n  margin: 0px 10px 0px 10px;\r\n}\r\n\r\nli a{\r\n  text-decoration: none;\r\n  color: white;\r\n}\r\nli input {\r\n  color: black;\r\n  height: 3em;\r\n  width: 14em;\r\n  margin: 1em;\r\n\r\n\r\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');\n\n* {\n\n    font-family: 'Tinos', serif;\n}\n\n.header {\n  background: rgb(15, 10, 28);\n  height: 50px;\n  border-bottom: 1px solid grey;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  align-content: center;\n  color: white;\n\n}\n#logo {\n  flex-grow: 1;\n}\n\n#logo h3 {\n  height: 100%;\n  text-align: left;\n  font-weight: bold;\n  margin: 0 0 0 5%;\n  padding: 0;\n}\n\n#menu {\n  flex-grow: 2;\n}\n\n#menu ul {\n  display: inline-block;\n  list-style-type: none;\n  margin: 0 5% 0 0;\n  padding: 0;\n  height: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n  align-content: center;\n}\n\nli {\n  display: inline-block;\n  margin: 0px 10px 0px 10px;\n}\n\nli a{\n  text-decoration: none;\n  color: white;\n}\nli input {\n  color: black;\n  height: 3em;\n  width: 14em;\n  margin: 1em;\n\n\n}")
 ;(function(){
 "use strict";
 
@@ -35636,8 +35645,8 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"header"},[_vm._m(0),_vm._v(" "),_c('div',{attrs:{"id":"menu"}},[_c('ul',[_c('li',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.searchTerm),expression:"searchTerm"}],attrs:{"type":"text","placeholder":"keyword"},domProps:{"value":(_vm.searchTerm)},on:{"input":function($event){if($event.target.composing){ return; }_vm.searchTerm=$event.target.value}}}),_c('button',{staticClass:"btn btn-primary",attrs:{"type":"button"},on:{"click":_vm.searchTwitter}},[_vm._v("Search")])]),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('li')])])])}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"logo"}},[_c('h3',[_vm._v("Senti-Bot")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',[_c('a',{attrs:{"href":"#"}},[_vm._v("gitHub")])])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"header"},[_vm._m(0),_vm._v(" "),_c('div',{attrs:{"id":"menu"}},[_c('ul',[_c('li',[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.searchTerm),expression:"searchTerm"}],attrs:{"type":"text","placeholder":"keyword","value":"net neutrality"},domProps:{"value":(_vm.searchTerm)},on:{"input":function($event){if($event.target.composing){ return; }_vm.searchTerm=$event.target.value}}})]),_vm._v(" "),_c('li',[_c('button',{staticClass:"btn btn-primary",attrs:{"type":"button"},on:{"click":_vm.searchTwitter}},[_vm._v("Search")])])])])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"logo"}},[_c('h4',[_vm._v("Senti-Bot")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -35650,7 +35659,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   }
 })()}
 },{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],59:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("div[data-v-736b991b] {\r\n\r\nheight: 100%;\r\nwidth: 100%;\r\npadding: 0;\r\nmargin-left: 0;\r\n\r\n}\r\n\r\nh2[data-v-736b991b] {\r\n  font-weight: 200%;\r\n\r\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');\r\n\r\nh2[data-v-736b991b], h3[data-v-736b991b] {\r\n    font-family: 'Tinos', serif;\r\n}\r\n\r\ndiv[data-v-736b991b] {\r\n\r\nheight: 100%;\r\nwidth: 100%;\r\npadding: 0;\r\nmargin-left: 0;\r\n\r\n}\r\n\r\nh2[data-v-736b991b] {\r\n  font-weight: 200%;\r\n\r\n}")
 ;(function(){
 "use strict";
 
@@ -35681,7 +35690,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   }
 })()}
 },{"vue":54,"vue-hot-reload-api":52,"vueify/lib/insert-css":55}],60:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("@media (max-width: 48em) {\r\n\r\n  p[data-v-5365941e] {\r\n\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1em;\r\n  }\r\n}\r\n\r\n@media (min-width: 49em) and (max-width: 64em) {\r\n\r\n  p[data-v-5365941e] {\r\n\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1.5em;\r\n  }\r\n}\r\n\r\n@media (min-width: 65em) {\r\n\r\n  h3[data-v-5365941e] {\r\n    display: inline-block;\r\n    width: 100%;\r\n    height: 15%;\r\n    text-overflow: ellipsis;\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1.8em;\r\n    font-family: 'Alegreya', serif;\r\n  }\r\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');\r\n\r\np[data-v-5365941e], h3[data-v-5365941e] {\r\n    font-family: 'Tinos', serif;\r\n}\r\n\r\n@media (max-width: 48em) {\r\n\r\n  p[data-v-5365941e] {\r\n\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1em;\r\n  }\r\n}\r\n\r\n@media (min-width: 49em) and (max-width: 64em) {\r\n\r\n  p[data-v-5365941e] {\r\n\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1.5em;\r\n  }\r\n}\r\n\r\n@media (min-width: 65em) {\r\n\r\n  h3[data-v-5365941e] {\r\n    display: inline-block;\r\n    width: 100%;\r\n    height: 15%;\r\n    text-overflow: ellipsis;\r\n    border: 1px solid grey;\r\n    margin: 2px;\r\n    padding: 0;\r\n    text-align: center;\r\n    font-size: 1.8em;\r\n    font-family: 'Alegreya', serif;\r\n  }\r\n}")
 ;(function(){
 "use strict";
 

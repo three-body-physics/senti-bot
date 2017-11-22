@@ -2,6 +2,9 @@
 <div id="app">
   <app-header v-on:startStream="startStream($event)"></app-header>
   <div class="chartArea">
+    <div v-if="error" class="error-window">
+      <h2>Error occured please try another search term</h2>
+    </div>
     <div class="chartWrapper">
       <bar-chart :chart-data="chartData"></bar-chart>
     </div>
@@ -32,13 +35,6 @@ import statsScreen from "./statsScreen.vue";
 import averageScreen from "./averageScreen.vue";
 import VueCharts from 'vue-chartjs';
 import Vue from "vue";
-// import firebase from "firebase"
-//
-// import firebaseKey from "./firebasekey.js"
-//
-// let fireApp = firebase.initializeApp(firebaseKey.key);
-// let db = fireApp.database();
-
 
 
 Vue.component('bar-chart', {
@@ -60,8 +56,11 @@ Vue.component('radar-chart', {
   mounted() {
     this.renderChart(this.chartData, {
       responsive: true,
-      maintainAspectRatio: false
-    })
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      }
+    });
   }
 })
 
@@ -101,16 +100,14 @@ export default {
       chartData: {},
       chartDataNoNeutral: {},
       positiveCount: 0,
-      negativeCount: 0
+      negativeCount: 0,
+      error: false
 
 
     } //return
   }, //data
 
   sockets: {
-    connect() {
-      // this.$socket.emit("query", "trump");
-    },
 
     tweetReceived(tweet) {
       if (this.messages.length >= 3) {
@@ -123,7 +120,11 @@ export default {
     },
 
     errorEvent(errorMsg) {
-      console.log(error);
+      this.error = true;
+
+      setTimeout(()=> {
+        this.error = false;
+      })
     }
   }, //sockets
 
@@ -188,15 +189,15 @@ export default {
       this.chartData = {
         labels: ["Very Negative", "Negative", "Slightly Negative", "Neutral", "Slightly Positive", "Positive", "Very Positive"],
         datasets: [{
-          label: "percentage",
+          label: "Percentage of tweets",
           backgroundColor: [
             'rgba(232, 0, 0, 1)',
             'rgba(0, 81, 164, 1)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(205, 129, 44, 0.6)'
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1',
+            'rgba(205, 129, 44, 1)'
           ],
           borderWidth: 1,
           data: this.parcentageData
@@ -206,14 +207,14 @@ export default {
       this.chartDataNoNeutral = {
         labels: ["Very Negative", "Negative", "Slightly Negative", "Slightly Positive", "Positive", "Very Positive"],
         datasets: [{
-          label: "Percentage",
+          label: "Percentage of tweets",          
           backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(232, 0, 0, 1)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(0, 135, 14, 1)',
-            'rgba(0, 81, 164, 1)',
+            'rgba(225, 0, 0, 0.8)',
+            'rgba(255, 127, 0, 1)',            
+            'rgba(255, 180, 0, 1)',
+            'rgba(0, 157, 255, 1)',
+            'rgba(0, 29, 255, 1)',
+            'rgba(19, 114, 0, 1)'
           ],
           borderWidth: 1,
           data: this.parcentageDataNoNeutral
@@ -232,9 +233,13 @@ export default {
 }
 </script>
 
-<!-- CSS -->
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');
+* {
+  font-family: 'Tinos', serif;
+}
 #app {
   width: 100%;
   display: flex;
@@ -250,6 +255,18 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   background: rgb(238, 238, 238);
+  position: relative;
+}
+
+.error-window {
+  width: 30%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 1000;
+  border: 1px solid black;
 }
 
 .chartArea div div {
@@ -322,6 +339,7 @@ export default {
 
 @media (min-width: 49em) and (max-width: 64em) {
 
+
   .chartWrapper {
 
     width: 47%;
@@ -347,5 +365,14 @@ export default {
     -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
   }
+}
+
+@media only screen and (max-width: 40em) { 
+
+
+  .error-window {
+  width: 100%;
+}
+
 }
 </style>

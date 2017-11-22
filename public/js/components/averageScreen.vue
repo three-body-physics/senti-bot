@@ -19,6 +19,12 @@ export default {
 
 <style scoped>
 
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,700');
+
+h2, h3 {
+    font-family: 'Tinos', serif;
+}
+
 div {
 
 height: 100%;
