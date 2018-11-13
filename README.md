@@ -3,6 +3,8 @@ Sentiment analysis program that pulls tweets from twitter's public API.
 
 https://shielded-ocean-84949.herokuapp.com/
 
+Makes use of Socket.io and Charts.js
+
 ## Testing
 
 ``` bash
